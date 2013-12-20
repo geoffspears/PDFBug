@@ -21,23 +21,11 @@
 
 static NSString *filename = @"test.pdf";
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
 -(IBAction)generateButtonTapped:(id)sender
 {
     NSString *number = [self.segmentedControl titleForSegmentAtIndex:self.segmentedControl.selectedSegmentIndex];
     self.count = [number integerValue];
     [self savePDFToDisk];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)savePDFToDisk
@@ -54,9 +42,7 @@ static NSString *filename = @"test.pdf";
     NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
     
     NSString* documentDirectory = [documentDirectories objectAtIndex:0];
-    NSString* documentDirectoryFilename = [documentDirectory stringByAppendingPathComponent:filename];
-    
-    return documentDirectoryFilename;
+    return [documentDirectory stringByAppendingPathComponent:filename];
 }
 
 -(NSString *)sampleHTML

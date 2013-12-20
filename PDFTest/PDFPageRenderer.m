@@ -23,7 +23,6 @@
 - (void)saveToPDF:(NSString *)filename
 {
     UIGraphicsBeginPDFContextToFile(filename, CGRectZero, nil);
-    [self prepareForDrawingPages: NSMakeRange(0, 1)];
     CGRect bounds = UIGraphicsGetPDFContextBounds();
     
     // on large documents on a device the number of pages returned by the UIMarkupTextPrintFormatter
